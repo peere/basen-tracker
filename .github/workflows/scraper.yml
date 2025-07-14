@@ -2,12 +2,16 @@ name: Scrapuj basen
 
 on:
   schedule:
-    - cron: "*/10 * * * *"  # co 10 minut
-  workflow_dispatch:        # pozwala też odpalić ręcznie
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write  # <<< DODAJ TO
 
 jobs:
   run-scraper:
     runs-on: ubuntu-latest
+
 
     steps:
     - name: Checkout repo
