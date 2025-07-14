@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # <<< DODAJ TO
+  contents: write  
 
 jobs:
   run-scraper:
@@ -39,4 +39,5 @@ jobs:
         git add log.csv
         git commit -m "Update log.csv" || echo "Brak zmian"
         git push
+
 
