@@ -1,4 +1,4 @@
-name: Scrapuj basen
+name: Scrapuj baseen
 
 on:
   schedule:
@@ -37,9 +37,9 @@ jobs:
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
         git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
-        git pull --rebase
+        git pull origin main --rebase
         git add log.csv
         git commit -m "Update log.csv" || echo "Brak zmian"
-        git push
+        git push origin main
 
 
