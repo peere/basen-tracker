@@ -40,6 +40,6 @@ jobs:
         git pull origin main --rebase || git rebase --skip
         git add log.csv
         git commit -m "Update log.csv" || echo "Brak zmian"
-        git push origin main
+        git push origin main --force
 
 
