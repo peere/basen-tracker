@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import csv
+from zoneinfo import ZoneInfo
 
 URL = "https://mosir.elblag.eu/obiekt-sportowy/baseny/crw-dolinka/"
 
@@ -9,12 +10,12 @@ def get_people_count():
     response = requests.get(URL)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    count_element = soup.select_one(".details-icon-pool")  # np. <div class="people-count">23</div>
+    count_element = soup.select_one(".details-icon-pool") 
     count = int(count_element.text.strip())
     return count
 
 def log_data(count):
-    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    now = datetime.now(ZoneInfo("Europe/Warsaw")).strftime("%Y-%m-%d %H:%M:%S")
     with open("log.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([now, count])
