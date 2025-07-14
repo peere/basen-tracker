@@ -39,7 +39,6 @@ jobs:
         git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
         git add log.csv
         git commit -m "Update log.csv" || echo "Brak zmian"
-        git pull origin main --rebase || git rebase --skip
         git push origin main --force
 
 
